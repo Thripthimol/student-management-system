@@ -1,0 +1,108 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management System</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    input, button { margin: 5px; padding: 5px; }
+    table { border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid black; padding: 8px; }
+  </style>
+</head>
+<body>
+
+<h2>Student Management System</h2>
+
+<input id="roll" placeholder="Roll No">
+<input id="name" placeholder="Name">
+<input id="course" placeholder="Course">
+<button onclick="addStudent()">Add Student</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Roll</th>
+      <th>Name</th>
+      <th>Course</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="data"></tbody>
+</table>
+
+<script>
+const API = "http://backend:3000/students";
+
+function addStudent() {
+  fetch(API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      roll: roll.value,
+      name: name.value,
+      course: course.value
+    })
+  }).then(loadStudents);
+}
+
+function loadStudents() {
+  fetch(API)
+    .then(res => res.json())
+    .then(students => {
+      data.innerHTML = "";
+      students.forEach(s => {
+        data.innerHTML += `
+          <tr>
+            <td>${s.roll}</td>
+            <td>${s.name}</td>
+            <td>${s.course}</td>
+            <td>
+              <button onclick="deleteStudent('${s.roll}')">Delete</button>
+            </td>
+          </tr>`;
+      });
+    });
+}
+
+function deleteStudent(roll) {
+  fetch(API + "/" + roll, { method: "DELETE" })
+    .then(loadStudents);
+}
+
+loadStudents();
+</script>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Student Management System</h1>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Course</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Alice</td>
+      <td>Math</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Bob</td>
+      <td>Science</td>
+    </tr>
+  </table>
+
+</body>
+</html>
